@@ -67,11 +67,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: stone10LOW
-    second: {fileID: 2100000, guid: 3a879ae7288b6f74cb76ba728f1797a5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: straw_roof
     second: {fileID: 2100000, guid: 578cedeb115ecc641ba4effbcf6be8a9, type: 2}
   - first:
