@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Events;
 
 public class DialogueWindow : MonoBehaviour 
 {
@@ -24,13 +25,7 @@ public class DialogueWindow : MonoBehaviour
 
     private Stack<string> _currentDialogue = new Stack<string>();
 
-    [SerializeField]
-    private ScenarioContainer _testScenario;
-
-    private void Start()
-    {
-        StartDialogue(_testScenario);
-    }
+    public UnityEvent OnDialogueEnded;
 
     public void StartDialogue(ScenarioContainer scenario)
     {
@@ -59,9 +54,15 @@ public class DialogueWindow : MonoBehaviour
             _cancelDialogueButton.gameObject.SetActive(true);
             _continueDialogueButton.gameObject.SetActive(false);
             _continueDialogueButton.onClick.RemoveAllListeners();
-            _cancelDialogueButton.onClick.AddListener( () => { Destroy(gameObject); });
+            _cancelDialogueButton.onClick.AddListener(CancelDialogue);
 
             _characterWordsBox.text = _currentDialogue.Pop();
         }
+    }
+
+    private void CancelDialogue()
+    {
+        OnDialogueEnded?.Invoke();
+        Destroy(gameObject);
     }
 }

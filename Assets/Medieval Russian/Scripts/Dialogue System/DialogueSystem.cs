@@ -7,6 +7,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField]
     private DialogueWindow _dialogueWindow;
 
+    private DialogueWindow _spawnedDialogueWindow;
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -17,8 +19,9 @@ public class DialogueSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SpawnDialogueWindow(Transform spawnPoint)
+    public DialogueWindow SpawnDialogueWindow(Transform spawnPoint)
     {
-        DialogueWindow window = Instantiate(_dialogueWindow, spawnPoint);
+        _spawnedDialogueWindow = Instantiate(_dialogueWindow, spawnPoint.position, spawnPoint.rotation);
+        return _spawnedDialogueWindow;
     }
 }
