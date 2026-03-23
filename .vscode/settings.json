@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Medieval-Russian.slnx"
+    "dotnet.defaultSolution": "Medieval-Russian.slnx",
+    "dotnet.preferCSharpExtension": true
 }
