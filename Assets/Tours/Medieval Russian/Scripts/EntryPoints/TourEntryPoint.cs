@@ -2,15 +2,18 @@ using System.Collections;
 using TourverseToolkit.Runtime;
 using UnityEngine;
 
-public class TourEntryPoint : MonoBehaviour
+namespace Tour_Novgorod_MedievalRussia
 {
-    [SerializeField]
-    private PlayerCamera _playerCamera;
-
-    private IEnumerator Start()
+    public class TourEntryPoint : MonoBehaviour
     {
-        TourController.TourStart(_playerCamera);
-        yield return new WaitForSeconds(30.0f);
-        TourController.CheckPoint(0);
+        [SerializeField]
+        private PlayerCamera _playerCamera;
+
+        private IEnumerator Start()
+        {
+            TourController.TourStart(_playerCamera);
+            yield return new WaitForSeconds(30.0f);
+            TourController.CheckPoint(0);
+        }
     }
 }
