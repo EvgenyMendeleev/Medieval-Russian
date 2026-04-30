@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Tour_Novgorod_MedievalRussia
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Tour_Novgorod_MedievalRussia
+  m_GUID: f3f47868c7407b747a06dbafd8d32b1b
+  m_SerializeEntries:
+  - m_GUID: 4f7119b504e34f84e975ebf8cca8d63c
+    m_Address: Tour_Novgorod_MedievalRussia
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tour_Novgorod_MedievalRussia
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c82d307197e603c439ada63e6bb77299, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6e0e70071ef91414eac2656769422576, type: 2}
+    - {fileID: 11400000, guid: c792f84d3b65969489a6683b66fce868, type: 2}

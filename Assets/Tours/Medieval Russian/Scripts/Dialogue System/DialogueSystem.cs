@@ -1,27 +1,30 @@
 using UnityEngine;
 
-public class DialogueSystem : MonoBehaviour
+namespace Tour_Novgorod_MedievalRussia
 {
-    public static DialogueSystem Instance { get; private set; }
-
-    [SerializeField]
-    private DialogueWindow _dialogueWindow;
-
-    private DialogueWindow _spawnedDialogueWindow;
-
-    private void Awake()
+    public class DialogueSystem : MonoBehaviour
     {
-        if(Instance != null && Instance != this)
+        public static DialogueSystem Instance { get; private set; }
+
+        [SerializeField]
+        private DialogueWindow _dialogueWindow;
+
+        private DialogueWindow _spawnedDialogueWindow;
+
+        private void Awake()
         {
-            Destroy(Instance);
+            if(Instance != null && Instance != this)
+            {
+                Destroy(Instance);
+            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
 
-    public DialogueWindow SpawnDialogueWindow(Transform spawnPoint)
-    {
-        _spawnedDialogueWindow = Instantiate(_dialogueWindow, spawnPoint.position, spawnPoint.rotation);
-        return _spawnedDialogueWindow;
+        public DialogueWindow SpawnDialogueWindow(Transform spawnPoint)
+        {
+            _spawnedDialogueWindow = Instantiate(_dialogueWindow, spawnPoint.position, spawnPoint.rotation);
+            return _spawnedDialogueWindow;
+        }
     }
 }

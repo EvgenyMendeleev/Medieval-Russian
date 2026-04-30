@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InfoMark : MonoBehaviour
+namespace Tour_Novgorod_MedievalRussia
 {
-    [SerializeField]
-    private ScenarioContainer characterInfo;
-
-    [SerializeField]
-    private Transform _spawnPoint;
-
-    private void Start()
+    public class InfoMark : MonoBehaviour
     {
-        var button = GetComponentInChildren<Button>();
-        button.onClick.AddListener(StartDialogue);
-    }
+        [SerializeField]
+        private ScenarioContainer characterInfo;
 
-    public void StartDialogue()
-    {
-        var dialogueWindow = DialogueSystem.Instance.SpawnDialogueWindow(_spawnPoint);
-        dialogueWindow.OnDialogueEnded.AddListener(() =>
+        [SerializeField]
+        private Transform _spawnPoint;
+
+        private void Awake()
         {
-            gameObject.SetActive(true);
-        });
-        dialogueWindow.StartDialogue(characterInfo);
-        gameObject.SetActive(false);
+            var button = GetComponentInChildren<Button>();
+            button.onClick.AddListener(StartDialogue);
+        }
+
+        public void StartDialogue()
+        {
+            var dialogueWindow = DialogueSystem.Instance.SpawnDialogueWindow(_spawnPoint);
+            dialogueWindow.OnDialogueEnded.AddListener(() =>
+            {
+                gameObject.SetActive(true);
+            });
+            dialogueWindow.StartDialogue(characterInfo);
+            gameObject.SetActive(false);
+        }
     }
 }
